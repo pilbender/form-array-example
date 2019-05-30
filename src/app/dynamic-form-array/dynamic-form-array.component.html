@@ -1,8 +1,13 @@
 <form [formGroup]="myFormGroup" (ngSubmit)="upsert(myFormGroup.value)" class="zone-edit">
-  <div class="zone-edit">
-    <button (click)="addMy()" type="button">Add Another</button>
-  </div>
-  <div *ngFor="let my of myList.controls; let i = index" class="zone-edit">
+  <div formArrayName="myList">
+    <div class="zone-edit">
+      <button (click)="addMy()" type="button">Add Another</button>
+    </div>
+    <div *ngFor="let my of myList.controls; let i = index" class="zone-edit">
       <input type="text" [formControlName]="i" placeholder="Sample Data">
+    </div>
+    <div class="zone-edit">
+      <button type="submit" [disabled]="!myFormGroup.valid">Submit</button>
+    </div>
   </div>
 </form>

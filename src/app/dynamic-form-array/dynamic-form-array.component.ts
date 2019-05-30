@@ -28,6 +28,8 @@ export class DynamicFormArrayComponent implements OnInit {
   }
 
   upsert(sampleModel: SampleModel): void {
-    console.log('Value: ' + this.myList[0]);
+    for (let my of sampleModel.myList) {
+      console.log('Value: ' + my);
+    }
   }
 }
